@@ -28,12 +28,12 @@ return (
 
         <div className="navbar-right">
             <div className="navbar-right-login">
-                <Link>
+                <Link to="/login">
                     <p>Log In</p>
                 </Link>   
             </div>
             <div className="navbar-right-createAccount">
-                <Link>
+                <Link to="register">
                     <p>Create account</p>
                 </Link>
             </div>

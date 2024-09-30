@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const userApi = require("./routes/user.route");
 const PORT = 9001;
 const app = express();
+const blogApi = require("./routes/blog.route");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +16,8 @@ mongoose
   .then(() => console.log("Database Connected"))
   .catch((err) => console.log(err));
 
-app.use("/api/users", userApi);
+app.use("/api/v1", userApi);
+app.use("/api/v1", blogApi);
 
 
 app.listen(PORT, () => {

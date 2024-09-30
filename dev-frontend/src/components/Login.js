@@ -11,11 +11,11 @@ function Login() {
         <section>
             <div className="registeration">
             <div className="registeration-content">
-                <Link>
+                <Link to="/">
                     <img src={img1} alt="" />
                 </Link>
                 <h1 className="registeration-title">Join the DEV Community</h1>
-                <p className="registeration-description">DEV Community is a community of 1,208,445 developers</p>
+                <p className="registeration-description">DEV Community is a community of 1,208,445 amazing developers</p>
             </div>
 
             <div className="registeration-action">
@@ -67,7 +67,7 @@ function Login() {
                         </div>
                         <div className="checkered">
                             <div className="checked_input">
-                                <input type="checkbox" value="1"  checked="checked" name="user[remember_me]" id="user_remember_me"/> 
+                                <input type="checkbox" value="0"  checked="unchecked" name="user[remember_me]" id="user_remember_me"/> 
                                 <label htmlFor="user_remember_me">Remember Me</label>                                
                             </div>
 
@@ -85,7 +85,7 @@ function Login() {
                     <hr className="registeration_hr"/>
 
                     <div className="new-to-dev">
-                        New to DEV Community? <Link>Create Account</Link>
+                        New to DEV Community? <Link to="/register">Create Account</Link>
                     </div>
                 </div>
             </div>

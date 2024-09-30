@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
-import img1 from "../images/header-pix.webp";
-import img2 from "../images/sub-story-pix.png";
+//import img1 from "../images/dev-to-uploads.png";
+// import img2 from "../images/dev-to-uploads.png";
 import { IoLogoTwitter } from "react-icons/io5";
 import { IoLogoFacebook } from "react-icons/io5";
 import { IoLogoGithub } from "react-icons/io5";
@@ -28,6 +28,8 @@ import { FaRegThumbsUp } from "react-icons/fa";
 import { FcSelfie } from "react-icons/fc";
 import { GiEvilEyes } from "react-icons/gi";
 import { IoEllipsisHorizontal } from "react-icons/io5";
+import postData from "./dummyData";
+import "./home.css"
 
 function Home() {
     return (
@@ -41,12 +43,12 @@ function Home() {
                             <p className="card-place">We're a place where coders share, stay up-to-date and grow their careers.</p>
                             <div className="creataccount-login">                                
                                 <div className="card-createAccount">
-                                    <Link>
+                                    <Link to="/register">
                                         <p>Create account</p>
                                     </Link>
                                 </div>
                                 <div className="card-login">
-                                    <Link>
+                                    <Link to="/login">
                                         <p>Log In</p>
                                     </Link>   
                                 </div>
@@ -173,26 +175,35 @@ function Home() {
                         </nav>
                     </header>
 
-                    <div className="story-feature">
-                        <div className="story-feature-first">
-                            <div className="story-pix">
+                    <div className="">
+                        <div className="post-wrap">
+                            {/* <div className="story-pix">
                                 <Link>
                                     <img src={img1} alt="" />
                                 </Link>
-                            </div>
+                            </div> */}
 
-                            <div className="story-body">
-                                <div className="body-story-top">
 
+                        {
+                            postData?.map(item => (
+                                <div key={item?.id} className="posts">
+                                {/* Render the image inside a div with class "blog-banner" */}
+                                {item?.picture && (
+                                    <div className="blog-banner">
+                                        <img src={item.picture} alt={`${item?.author}'s blog banner`} className="post-image" />
+                                    </div>
+                                )}
+                                <p>{item?.author}</p>
+                                <p>{item?.created_at}</p>
+                                <p>{item?.title}</p>
+                                <p>{item?.tags?.map(tag => (<span key={tag} className="tag">#{tag}</span>))}</p>
                                 </div>
+                             ))
+                        }
 
-                                <div className="story-indentation">
-
-                                </div>
-                            </div>
                         </div>
 
-                        <div className="sub-stories">
+                        {/* <div className="sub-stories">
                             <div className="billboard">
                                 <div className="story-top">
                                     <div className="title">DEV Community</div>
@@ -220,42 +231,75 @@ function Home() {
 
                             <div className="story-feeds"></div>
 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
                 <div className="sidebar-wrapper-right">
-                    <div>
-                        <section className="first-wrapper">
-                            <header>
+                    <div className="sidebar-wrapper-right-contain">
+                        <section className="wrapper">
+                        <header className="wrapper-header">
                                 <h3>
-                                    <Link>#discuss</Link>
+                                    <Link>Active discussions</Link>
                                 </h3>
+                            </header>
+                            <div className="link-contentful-container">
+                                <Link className="link-contentful"> What is Mutex in Golang</Link>
+                                <Link className="link-contentful"> Welcome thread - v259</Link>
+                                <Link className="link-contentful"></Link>
+                                <Link className="link-contentful"></Link>
+                                <Link className="link-contentful"></Link>
+                            </div>
+                            
+                        </section>
 
+                        <section className="wrapper">
+                            <header className="wrapper-header">
+                                <h3>
+                                    <Link>#discussions</Link>
+                                </h3>
                                 <div>
-                                    Discussion threads targeting the whole community
-                                </div>
-
-                                <div>
-                                    <Link></Link>
-                                    <Link></Link>
-                                    <Link></Link>
-                                    <Link></Link>
-                                    <Link></Link>
+                                    Discussion thread targeting the whole community
                                 </div>
                             </header>
+                            <div className="link-contentful-container">
+                                <Link className="link-contentful"> What was your win this week?<div className="link-contentful-comment">1 comment</div></Link>
+                                <Link className="link-contentful">Balancing Act: Code Less or Lead More?<div className="link-contentful-comment">1 comment</div></Link>
+                                <Link className="link-contentful">Let's talk #DEVResolutions - what strikes a chord with you?<div className="link-contentful-comment">1 comment</div></Link>
+                                <Link className="link-contentful">Sloan's Inbox: As a beginner, should I use AI as a tool and how?<div className="link-contentful-comment">1 comment</div></Link>
+                                <Link className="link-contentful">Pseudo-multithreading in Web Development | DataTableDev<div className="link-contentful-comment">1 comment</div></Link>
+                            </div>
                         </section>
 
-                        <section>
-
+                        <section className="wrapper">
+                        <header className="wrapper-header">
+                                <h3>
+                                    <Link>#watercolor</Link>
+                                </h3>
+                                <div>
+                                Light, and off-topic conversation.
+                                </div>
+                            </header>
+                            <div className="link-contentful-container">
+                                <Link className="link-contentful"> Tumbleweed content <div className="link-contentful-comment">1 comment</div></Link>
+                                <Link className="link-contentful"> The Y2K Bug 🐞: Year 2000 Not Found ⁉️    <div className="link-contentful-comment">1 comment</div></Link>
+                            </div>
                         </section>
 
-                        <section>
-
-                        </section>
-
-                        <section>
-
+                        <section className="wrapper">
+                        <header className="wrapper-header">
+                                <h3>
+                                    <Link>#devresolutions2024</Link>
+                                </h3>
+                                <div>
+                                    Tag your posts with #DEVResolutions2024 to share your goals, track your progress, and inspire the DEV community with your achievements for the coming year.
+                                </div>
+                            </header>
+                            <div className="link-contentful-container">
+                                <Link className="link-contentful"> Let's talk #DEVResolutions - what strikes a chord with you?<div className="link-contentful-comment">1 comment</div></Link>
+                                <Link className="link-contentful"> SinisterChef's #DEVResolutions2024<div className="link-contentful-comment">1 comment</div></Link>
+                                <Link className="link-contentful"> #DEVResolutions2024<div className="link-contentful-indicator">New</div></Link>
+                            </div>
                         </section>
                     </div>
                 </div>
