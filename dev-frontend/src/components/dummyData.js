@@ -24,7 +24,7 @@ const postData = [
                 content:<p>With CSS, no react, processors, CSS-in-JS, frameworks, or other stuff. If you learn specific tools, you will know only specific tools. If you learn the basics, you can apply this knowledge with whatever tool you use.</p>
             }
         ],
-        cover_image:'https://media.dev.to/cdn-cgi/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Feme0eo2kv7o0vrg63frv.png'
+        cover_image:FirstImage,
     },
     {
         id: 1,
